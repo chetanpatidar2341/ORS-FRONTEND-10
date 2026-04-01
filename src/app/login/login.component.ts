@@ -20,8 +20,8 @@ export class LoginComponent {
   };
 
   constructor(private httpService: HttpServiceService, private router: Router, private route: ActivatedRoute) {
-    this.route.queryParams.subscribe((amit: any) => {
-      this.form.message = amit['errorMessage'];
+    this.route.queryParams.subscribe((params: any) => {
+      this.form.message = params['errorMessage'];
       this.form.error = true;
 
     })
