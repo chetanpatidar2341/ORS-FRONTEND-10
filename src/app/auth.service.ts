@@ -44,12 +44,24 @@ export class AuthService implements HttpInterceptor {
         }
 
         if (error.status === 503) {
-          this.router.navigate(['/login'], {
+          this.router.navigate([this.router.url], {
             queryParams: { errorMessage: error.error.result.message }
           });
         }
 
-        
+        if (error.status === 500) {
+          this.router.navigate([this.router.url], {
+            queryParams: { errorMessage: error.error.result.message }
+          });
+        }
+
+        if (error.status === 0) {
+          this.router.navigate([this.router.url], {
+            queryParams: { errorMessage: "Your backend is not responding, Please Start Backend Server" }
+          });
+        }
+
+
         return throwError(error);
       })
     );
