@@ -97,7 +97,7 @@
                         <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" />
                     </th>
 
-                    <th>{{'Table.SNo' | translate}}</th>
+                    <th>{{'UserForm.Table.SNo' | translate}}</th>
                     <th>{{'AccessLog.AccesslogCode' | translate}}</th>
                     <th>{{'AccessLog.UserName' | translate}}</th>
                     <th>{{'AccessLog.AccessTime' | translate}}</th>
@@ -161,7 +161,7 @@
     <!-- BACK -->
     <div *ngIf="form.list.length == 0" class="text-center mt-4">
         <button class="btn btn-secondary" (click)="reset()">
-            {{'Buttons.Back' | translate}}
+            Back
         </button>
     </div>
 
