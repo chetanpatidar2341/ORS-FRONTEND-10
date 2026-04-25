@@ -40,8 +40,7 @@
                                 </div>
                             </div>
 
-                            <input type="text" class="form-control"
-                                name="accesslogCode"
+                            <input type="text" class="form-control" name="accesslogCode"
                                 [(ngModel)]="form.data.accesslogCode"
                                 placeholder="{{'AccessLog.Placeholders.AccesslogCode' | translate}}">
                         </div>
@@ -63,9 +62,7 @@
                                 </div>
                             </div>
 
-                            <input type="text" class="form-control"
-                                name="username"
-                                [(ngModel)]="form.data.username"
+                            <input type="text" class="form-control" name="username" [(ngModel)]="form.data.username"
                                 placeholder="{{'AccessLog.Placeholders.UserName' | translate}}">
                         </div>
 
@@ -86,8 +83,7 @@
                                 </div>
                             </div>
 
-                            <input type="datetime-local" class="form-control"
-                                name="accessTime"
+                            <input type="datetime-local" class="form-control" name="accessTime"
                                 [(ngModel)]="form.data.accessTime">
                         </div>
 
@@ -108,13 +104,15 @@
                                 </div>
                             </div>
 
-                            <select class="form-control"
-                                name="status"
-                                [(ngModel)]="form.data.status">
+                            <select class="form-control" name="status" [(ngModel)]="form.data.status">
 
                                 <option value="undefined">
                                     {{'SelectOptions.Select' | translate}}
                                 </option>
+
+                                <!-- <option *ngFor="let obj of form.preload.accessLogList" [value]="obj.key">
+                                {{obj.value}}
+                            </option> -->
 
                                 <option value="SUCCESS">
                                     {{'SelectOptions.Success' | translate}}
@@ -139,34 +137,24 @@
                         <!-- BUTTONS -->
                         <div class="text-center mt-3">
 
-                            <button *ngIf="!form.data.id"
-                                type="button"
-                                class="btn btn-success"
-                                (click)="submit()">
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-success" (click)="submit()">
                                 {{'Buttons.Save' | translate}}
                             </button>
 
                             &nbsp;
 
-                            <button *ngIf="!form.data.id"
-                                type="button"
-                                class="btn btn-warning btn-md"
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-warning btn-md"
                                 (click)="reset()">
                                 {{'Buttons.Reset' | translate}}
                             </button>
 
-                            <button *ngIf="form.data.id > 0"
-                                type="button"
-                                class="btn btn-primary"
-                                (click)="submit()">
+                            <button *ngIf="form.data.id > 0" type="button" class="btn btn-primary" (click)="submit()">
                                 {{'Buttons.Update' | translate}}
                             </button>
 
                             &nbsp;
 
-                            <button *ngIf="form.data.id > 0"
-                                type="button"
-                                class="btn btn-info"
+                            <button *ngIf="form.data.id > 0" type="button" class="btn btn-info"
                                 (click)="forward('/accessloglist')">
                                 {{'Buttons.List' | translate}}
                             </button>
