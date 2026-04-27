@@ -12,32 +12,20 @@ export class HttpServiceService {
   post(endpoint: any, bean: any, callback: any) {
     return this.httpClient.post(endpoint, bean, { withCredentials: true }).subscribe((data) => {
       callback(data);
-    });
+    },
+      (error) => {
+        console.log("Error in post HttpService:", error);
+      }
+    );
   }
 
   get(endpoint: any, callback: any) {
     return this.httpClient.get(endpoint, { withCredentials: true }).subscribe((data) => {
       callback(data);
-    });
+    },
+      (error) => {
+        console.log("Error in get HttpService:", error);
+      });
   }
-
-  // private handleError(error: any): void {
-  //   console.error('Request failed', error);
-  //   if (error.status === 401) {
-  //     localStorage.clear();
-  //     this.router.navigate(['/login'], {
-  //       queryParams: { errorMessage: error.error }
-  //     });
-  //   }
-
-  //   if (error.status === 503) {
-  //     localStorage.clear();
-  //     console.log("result.msg--------------------------------->",error.error.result.message)
-  //     this.router.navigate([this.router.url], {
-  //       queryParams: { errorMessage: error.error.result.message }
-        
-  //     });
-  //   }
-  // }
 
 }
